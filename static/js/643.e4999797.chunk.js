@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrent_car_service=self.webpackChunkrent_car_service||[]).push([[643],{9643:function(e,r,c){c.r(r);var n=c(184);r.default=function(){return(0,n.jsx)("div",{children:"You're favorite cars"})}}}]);
+//# sourceMappingURL=643.e4999797.chunk.js.map
