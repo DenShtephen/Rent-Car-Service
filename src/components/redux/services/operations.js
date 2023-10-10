@@ -6,6 +6,7 @@ export const getCars = createAsyncThunk(
   async (page = 1, thunkApi) => {
     try {
       const response = await fetchCars(page);
+      console.log(response);
       return response;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

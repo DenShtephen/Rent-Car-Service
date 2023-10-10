@@ -26,13 +26,12 @@ export const CarList = () => {
   const onClickLoadMore = () => {
     setCurrentPage(prevPage => prevPage + 1);
   };
-
   return (
     <>
       {(!cars || cars.length === 0) && (
         <WrapperCarInfo>
           {isFavoritePage
-            ? "You haven't any cars in your favorites list yet."
+            ? "You haven't any car in your favorite list yet."
             : 'Sorry, we did not find anything with these parameters.'}
         </WrapperCarInfo>
       )}

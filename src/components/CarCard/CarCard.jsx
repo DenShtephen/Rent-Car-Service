@@ -48,7 +48,7 @@ export const CarCard = ({ carInfo }) => {
           <FavoriteButton onClick={() => onAddClick(carInfo)} type="button">
             <Heart
               className={`w-[18px] h-[18px] ${
-                isInFavorites(carInfo.id) ? 'fill-btn-primary' : ''
+                isInFavorites(carInfo.id) ? 'main-button-color' : ''
               }`}
             />
           </FavoriteButton>
@@ -56,7 +56,7 @@ export const CarCard = ({ carInfo }) => {
         <CardInfoContainer>
           <CarDetails>
             {carInfo.make}&nbsp;
-            <span className="text-btn-primary">{carInfo.model}</span>,&nbsp;
+            <span className="main-text-color">{carInfo.model}</span>,&nbsp;
             {carInfo.year}
           </CarDetails>
           <p>{carInfo.rentalPrice}</p>
