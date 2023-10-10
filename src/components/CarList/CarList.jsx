@@ -4,6 +4,11 @@ import { useLocation } from 'react-router-dom';
 import { CarCard } from '../CarCard/CarCard';
 import { getCars } from '../redux/services/operations';
 import { selectCars, selectFavorites } from '../redux/state';
+import {
+  CarListContainer,
+  LoadMoreButton,
+  WrapperCarInfo,
+} from './CarList.styled';
 
 export const CarList = () => {
   const dispatch = useDispatch();
@@ -24,26 +29,22 @@ export const CarList = () => {
 
   return (
     <>
-      {cars.length === 0 && (
-        <p className="mt-[20px] text-center text-[18px]">
+      {(!cars || cars.length === 0) && (
+        <WrapperCarInfo>
           {isFavoritePage
             ? "You haven't any cars in your favorites list yet."
             : 'Sorry, we did not find anything with these parameters.'}
-        </p>
+        </WrapperCarInfo>
       )}
-      <ul className="flex justify-center flex-row flex-wrap gap-y-[20px] gap-x-[29px]">
+      <CarListContainer>
         {cars?.map(car => (
           <CarCard key={car.id} carInfo={car} />
         ))}
-      </ul>
-      {!isFavoritePage && cars.length % 8 === 0 && (
-        <button
-          onClick={onClickLoadMore}
-          className="mt-[40px] mb-[10px] mx-auto block text-btn-primary hover:text-btn-hover focus:text-btn-hover font-medium text-[16px] leading-[24px] underline decoration-solid"
-          type="button"
-        >
+      </CarListContainer>
+      {!isFavoritePage && cars && cars.length % 8 === 0 && (
+        <LoadMoreButton onClick={onClickLoadMore} type="button">
           Load More
-        </button>
+        </LoadMoreButton>
       )}
     </>
   );

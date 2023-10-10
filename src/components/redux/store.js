@@ -1,4 +1,3 @@
-// store.js
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -11,8 +10,8 @@ import {
   PURGE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { carsReducer } from '../redux/services/carsSlice';
-import { favoritesReducer } from '../redux/services/Favorite/favoriteSlice';
+import { carsReducer } from './services/carsSlice';
+import { favoritesReducer } from './services/Favorite/favoriteSlice';
 
 const favoriteConfig = {
   key: 'favorite',

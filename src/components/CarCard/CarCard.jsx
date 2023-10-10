@@ -9,6 +9,15 @@ import {
 import { ModalCars } from '../ModalCars/ModalCars';
 import { selectFavorites } from '../redux/state';
 import { Button } from 'components/Button/Button';
+import {
+  AdditionalInfo,
+  CarDetails,
+  CarImage,
+  CardContainer,
+  CardInfoContainer,
+  FavoriteButton,
+  ImageContainer,
+} from './CarCard.styled';
 
 export const CarCard = ({ carInfo }) => {
   const dispatch = useDispatch();
@@ -29,43 +38,38 @@ export const CarCard = ({ carInfo }) => {
   return (
     <>
       {modalCar ? <ModalCars car={modalCar} closeModal={setModalCar} /> : null}
-      <li className="flex flex-col justify-between w-[270px]">
-        <div className="relative rounded-[12px] overflow-hidden">
-          <img
-            className="w-[274px] h-[228px]"
+      <CardContainer>
+        <ImageContainer>
+          <CarImage
             src={carInfo.img}
             alt={`${carInfo.make} ${carInfo.model}`}
             loading="lazy"
           />
-          <button
-            className="absolute top-[14px] right-[14px] border-none bg-transparent"
-            onClick={() => onAddClick(carInfo)}
-            type="button"
-          >
+          <FavoriteButton onClick={() => onAddClick(carInfo)} type="button">
             <Heart
               className={`w-[18px] h-[18px] ${
-                isInFavorites(carInfo.id)
-                  ? 'fill-btn-primary [&>g>path]:stroke-transparent'
-                  : ''
-              }  `}
+                isInFavorites(carInfo.id) ? 'fill-btn-primary' : ''
+              }`}
             />
-          </button>
-        </div>
-        <div className="flex justify-between mt-[14px] font-medium text-[16px] leading-[24px]">
-          <p>
+          </FavoriteButton>
+        </ImageContainer>
+        <CardInfoContainer>
+          <CarDetails>
             {carInfo.make}&nbsp;
             <span className="text-btn-primary">{carInfo.model}</span>,&nbsp;
             {carInfo.year}
-          </p>
+          </CarDetails>
           <p>{carInfo.rentalPrice}</p>
-        </div>
-        <div className="mt-[8px] [&>*]:inline-block text-overlay/[0.5] [&>*]:border-r-[1px] [&>*]:border-overlay/[0.1] [&>*]:px-[6px] text-[12px] leading-[18px]">
-          <span>{addressFormat(carInfo.address).join('')}</span>
-          <span>{carInfo.rentalCompany}</span>
+        </CardInfoContainer>
+        <div className="mt-[8px]">
+          <AdditionalInfo>
+            {addressFormat(carInfo.address).join('')}
+          </AdditionalInfo>
+          <AdditionalInfo>{carInfo.rentalCompany}</AdditionalInfo>
           {carInfo.accessories.map(el => (
-            <span className="last:border-r-0" key={el}>
+            <AdditionalInfo className="last:border-r-0" key={el}>
               {el}
-            </span>
+            </AdditionalInfo>
           ))}
         </div>
         <Button
@@ -73,7 +77,7 @@ export const CarCard = ({ carInfo }) => {
           type="button"
           text={'Learn More'}
         />
-      </li>
+      </CardContainer>
     </>
   );
 };

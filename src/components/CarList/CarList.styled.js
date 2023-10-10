@@ -1,24 +1,16 @@
 import styled from 'styled-components';
 
-export const CarsWrapper = styled.div`
-  margin: 0 auto;
-  padding: 0 16px;
+export const WrapperCarInfo = styled.p`
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
 `;
 
-export const CarsList = styled.ul`
+export const CarListContainer = styled.ul`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px auto;
-  gap: 30px;
-`;
-
-export const CarsItem = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  background-color: transparent;
+  gap: 20px 29px;
 `;
 
 export const LoadMoreButton = styled.button`
