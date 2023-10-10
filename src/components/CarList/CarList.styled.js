@@ -20,3 +20,27 @@ export const CarsItem = styled.li`
   flex: 1;
   background-color: transparent;
 `;
+
+export const LoadMoreButton = styled.button`
+  margin-top: 40px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: var(--main-button-color);
+  font-weight: medium;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover-button-color);
+  }
+
+  &:focus {
+    color: var(--hover-button-color);
+  }
+`;

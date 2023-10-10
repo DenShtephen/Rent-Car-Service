@@ -1,39 +1,42 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCars } from 'components/redux/services/operations';
-import { CarCard } from 'components/CarCard/CarCard';
-import { CarsItem, CarsList, CarsWrapper } from './CarList.styled';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { selectCars } from 'components/redux/state';
+import { CarCard } from '../CarCard/CarCard';
+import { getCars } from '../redux/services/operations';
+import { selectCars, selectFavorites } from '../redux/state';
 
 export const CarList = () => {
-  const location = useLocation();
   const dispatch = useDispatch();
-  const cars = useSelector(selectCars);
+  const location = useLocation();
+  const isFavoritePage = location.pathname.includes('favorite');
   const [currentPage, setCurrentPage] = useState(1);
+  const cars = useSelector(isFavoritePage ? selectFavorites : selectCars);
 
   useEffect(() => {
-    dispatch(getCars());
-  }, [dispatch]);
+    if (!isFavoritePage) {
+      dispatch(getCars(currentPage));
+    }
+  }, [dispatch, currentPage, isFavoritePage]);
 
   const onClickLoadMore = () => {
     setCurrentPage(prevPage => prevPage + 1);
   };
 
   return (
-    <CarsWrapper>
-      {cars.status === 'loading' && <p>Loading...</p>}
-      {cars.status === 'failed' && <p>Error: {cars.error}</p>}
-      {cars.status === 'succeeded' && (
-        <CarsList>
-          {cars.data.map(car => (
-            <CarsItem key={car.id}>
-              <CarCard carData={car} />
-            </CarsItem>
-          ))}
-        </CarsList>
+    <>
+      {cars.length === 0 && (
+        <p className="mt-[20px] text-center text-[18px]">
+          {isFavoritePage
+            ? "You haven't any cars in your favorites list yet."
+            : 'Sorry, we did not find anything with these parameters.'}
+        </p>
       )}
-      {location.pathname.includes('favorite') || currentPage > 3 ? null : (
+      <ul className="flex justify-center flex-row flex-wrap gap-y-[20px] gap-x-[29px]">
+        {cars?.map(car => (
+          <CarCard key={car.id} carInfo={car} />
+        ))}
+      </ul>
+      {!isFavoritePage && cars.length % 8 === 0 && (
         <button
           onClick={onClickLoadMore}
           className="mt-[40px] mb-[10px] mx-auto block text-btn-primary hover:text-btn-hover focus:text-btn-hover font-medium text-[16px] leading-[24px] underline decoration-solid"
@@ -42,6 +45,6 @@ export const CarList = () => {
           Load More
         </button>
       )}
-    </CarsWrapper>
+    </>
   );
 };
