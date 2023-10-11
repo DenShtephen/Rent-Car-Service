@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrent_car_service=self.webpackChunkrent_car_service||[]).push([[643],{9643:function(e,r,n){n.r(r);var t=n(1614),c=n(1989),s=n(2791),u=n(9434),a=n(184);r.default=function(){var e=(0,u.I0)();return(0,s.useEffect)((function(){e((0,c.tr)())})),(0,a.jsx)(a.Fragment,{children:(0,a.jsx)(t.h,{isFavorite:!0})})}}}]);
+//# sourceMappingURL=643.4a8b7110.chunk.js.map
