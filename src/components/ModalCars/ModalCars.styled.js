@@ -10,7 +10,6 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
 `;
 
 export const ModalContent = styled.div`
@@ -20,12 +19,11 @@ export const ModalContent = styled.div`
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   max-width: 540px;
-  padding: 20px;
-  position: relative;
+  padding: 40px;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
 `;
 
 export const ClosedButton = styled.button`
@@ -34,6 +32,8 @@ export const ClosedButton = styled.button`
   right: 16px;
   z-index: 10;
   cursor: pointer;
+  background: transparent;
+  border: none;
 `;
 
 export const CarImage = styled.div`
@@ -42,6 +42,8 @@ export const CarImage = styled.div`
   height: 260px;
   overflow: hidden;
   border-radius: 12px;
+
+  margin-bottom: 10px;
 
   img {
     width: 100%;
@@ -57,13 +59,18 @@ export const CarImage = styled.div`
 `;
 
 export const CarDetails = styled.div`
-  margin-top: 8px;
-  display: inline-block;
-  text-align: left;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 6px;
-  font-size: 12px;
-  line-height: 18px;
+  margin-bottom: 14px;
+  span {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    display: inline-block;
+    text-align: left;
+
+    padding: 0 6px;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--secondary-text-color);
+  }
 
   &:last-child {
     border-right: none;
@@ -97,4 +104,79 @@ export const RentalButton = styled.a`
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
+`;
+
+export const CarDetailsModal = styled.p`
+  span {
+    color: var(--car-text-color);
+  }
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+`;
+
+export const ModalCarDescr = styled.p`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-text-color);
+
+  margin-bottom: 24px;
+`;
+
+export const ModalCarAcsess = styled.p`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-text-color);
+
+  margin-bottom: 8px;
+`;
+
+export const ModalCarDescrAcsess = styled.div`
+  margin-bottom: 14px;
+  span {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    text-align: left;
+
+    padding: 0 6px;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--secondary-text-color);
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+`;
+
+export const BackgroundWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+`;
+
+export const BackgroundElem = styled.p`
+  border-radius: 35px;
+  background: #f9f9f9;
+  padding: 7px 14px;
+  color: #363535;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.24px;
+
+  span {
+    color: var(--main-button-color);
+    font-size: 12px;
+    margin-left: 5px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.24px;
+  }
 `;

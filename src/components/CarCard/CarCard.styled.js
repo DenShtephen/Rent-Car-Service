@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as Heart } from '../../imgs/svgs/Hart.svg';
 
 export const CardContainer = styled.li`
   display: flex;
@@ -58,5 +59,23 @@ export const AdditionalInfo = styled.div`
 
   &:last-child {
     border-right: 0;
+  }
+`;
+
+export const HeartIcon = styled(Heart)`
+  width: 18px;
+  height: 18px;
+
+  &.favorite {
+    fill: var(--main-button-color);
+    & > g > path {
+      stroke: #3470ff;
+    }
+  }
+  &.no-favorite {
+    fill: transparent;
+    & > g > path {
+      stroke: white;
+    }
   }
 `;

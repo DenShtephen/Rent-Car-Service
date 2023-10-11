@@ -17,6 +17,8 @@ export const CarListContainer = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px 29px;
+
+  margin-bottom: 20px;
 `;
 
 export const LoadMoreButton = styled.button`

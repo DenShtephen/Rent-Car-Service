@@ -2,7 +2,7 @@ import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { getCarById } from '../../../../helpers/mochAPI';
 
 export const getCarDetails = createAsyncThunk(
-  'favorites/getCarDetails',
+  'favorites/getCarById',
   async (carsId, thunkApi) => {
     try {
       const response = await Promise.all(carsId.map(id => getCarById(id)));
@@ -13,6 +13,10 @@ export const getCarDetails = createAsyncThunk(
   }
 );
 
-export const addCarToFavorites = createAction('favorites/addCar');
+export const addCarToFavorites = createAction('favorites/addCar', car => ({
+  payload: car,
+}));
 
-export const removeCarFromFavorites = createAction('favorites/removeCar');
+export const removeCarFromFavorites = createAction('favorite/remove', id => ({
+  payload: id,
+}));

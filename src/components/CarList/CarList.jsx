@@ -32,7 +32,7 @@ export const CarList = () => {
       {(!cars || cars.length === 0) && (
         <WrapperCarInfo>
           {isFavoritePage
-            ? "You haven't any car in your favorite list yet."
+            ? "You haven't any car in your favorite list."
             : 'Sorry, we did not find anything with these parameters.'}
         </WrapperCarInfo>
       )}
@@ -41,7 +41,7 @@ export const CarList = () => {
           <CarCard key={car.id} carInfo={car} />
         ))}
       </CarListContainer>
-      {!isFavoritePage && cars && cars.length % 8 === 0 && (
+      {isFavoritePage || cars === 0 || cars.length >= 32 ? null : (
         <LoadMoreButton onClick={onClickLoadMore} type="button">
           Load More
         </LoadMoreButton>

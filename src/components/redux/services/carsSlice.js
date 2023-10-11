@@ -15,7 +15,7 @@ const carsSlice = createSlice({
       })
       .addCase(getCars.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.data = action.payload;
+        state.data = [...state.data, ...action.payload];
       })
       .addCase(getCars.rejected, (state, action) => {
         state.status = 'failed';

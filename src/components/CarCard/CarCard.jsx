@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { ReactComponent as Heart } from '../../imgs/svgs/Hart.svg';
-import { addressFormat } from '../../helpers/address';
 import {
   addCarToFavorites,
   removeCarFromFavorites,
@@ -16,6 +14,7 @@ import {
   CardContainer,
   CardInfoContainer,
   FavoriteButton,
+  HeartIcon,
   ImageContainer,
 } from './CarCard.styled';
 
@@ -28,7 +27,10 @@ export const CarCard = ({ carInfo }) => {
     return favorites.map(el => el.id).includes(id);
   };
 
-  const onLearnMoreClick = car => setModalCar(car);
+  const onLearnMoreClick = car => {
+    console.log(123);
+    setModalCar(car);
+  };
 
   const onAddClick = car => {
     if (isInFavorites(car.id)) return dispatch(removeCarFromFavorites(car.id));
@@ -37,7 +39,9 @@ export const CarCard = ({ carInfo }) => {
 
   return (
     <>
-      {modalCar ? <ModalCars car={modalCar} closeModal={setModalCar} /> : null}
+      {modalCar ? (
+        <ModalCars car={modalCar} closeModal={() => setModalCar(null)} />
+      ) : null}
       <CardContainer>
         <ImageContainer>
           <CarImage
@@ -46,10 +50,8 @@ export const CarCard = ({ carInfo }) => {
             loading="lazy"
           />
           <FavoriteButton onClick={() => onAddClick(carInfo)} type="button">
-            <Heart
-              className={`w-[18px] h-[18px] ${
-                isInFavorites(carInfo.id) ? '--main-button-color' : ''
-              }`}
+            <HeartIcon
+              className={isInFavorites(carInfo.id) ? 'favorite' : 'no-favorite'}
             />
           </FavoriteButton>
         </ImageContainer>
@@ -62,9 +64,7 @@ export const CarCard = ({ carInfo }) => {
           <p>{carInfo.rentalPrice}</p>
         </CardInfoContainer>
         <div className="mt-[8px]">
-          <AdditionalInfo>
-            {addressFormat(carInfo.address).join('')}
-          </AdditionalInfo>
+          <AdditionalInfo>{carInfo.address}</AdditionalInfo>
           <AdditionalInfo>{carInfo.rentalCompany}</AdditionalInfo>
           {carInfo.accessories.map(el => (
             <AdditionalInfo className="last:border-r-0" key={el}>
