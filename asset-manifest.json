@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.css": "/rent-car-service/static/css/main.7c11819e.css",
-    "main.js": "/rent-car-service/static/js/main.b0478d11.js",
-    "static/js/812.f796719f.chunk.js": "/rent-car-service/static/js/812.f796719f.chunk.js",
-    "static/js/643.e4999797.chunk.js": "/rent-car-service/static/js/643.e4999797.chunk.js",
+    "main.css": "/rent-car-service/static/css/main.42844b83.css",
+    "main.js": "/rent-car-service/static/js/main.244d8f63.js",
+    "static/js/875.4ad7ef80.chunk.js": "/rent-car-service/static/js/875.4ad7ef80.chunk.js",
+    "static/js/643.de928c12.chunk.js": "/rent-car-service/static/js/643.de928c12.chunk.js",
+    "static/js/784.699d999a.chunk.js": "/rent-car-service/static/js/784.699d999a.chunk.js",
+    "static/media/CarFont.jpg": "/rent-car-service/static/media/CarFont.5de595facdfe7031f2f3.jpg",
     "index.html": "/rent-car-service/index.html",
     "static/media/Hart.svg": "/rent-car-service/static/media/Hart.282d936f414f4c6884ab9306a91dad67.svg",
     "static/media/Close.svg": "/rent-car-service/static/media/Close.a64622d67e7e313b092ebbad3bad9525.svg",
-    "main.7c11819e.css.map": "/rent-car-service/static/css/main.7c11819e.css.map",
-    "main.b0478d11.js.map": "/rent-car-service/static/js/main.b0478d11.js.map",
-    "812.f796719f.chunk.js.map": "/rent-car-service/static/js/812.f796719f.chunk.js.map",
-    "643.e4999797.chunk.js.map": "/rent-car-service/static/js/643.e4999797.chunk.js.map"
+    "main.42844b83.css.map": "/rent-car-service/static/css/main.42844b83.css.map",
+    "main.244d8f63.js.map": "/rent-car-service/static/js/main.244d8f63.js.map",
+    "875.4ad7ef80.chunk.js.map": "/rent-car-service/static/js/875.4ad7ef80.chunk.js.map",
+    "643.de928c12.chunk.js.map": "/rent-car-service/static/js/643.de928c12.chunk.js.map",
+    "784.699d999a.chunk.js.map": "/rent-car-service/static/js/784.699d999a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c11819e.css",
-    "static/js/main.b0478d11.js"
+    "static/css/main.42844b83.css",
+    "static/js/main.244d8f63.js"
   ]
 }
