@@ -22,4 +22,6 @@ export const ButtonStyled = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 1.4;
+
+  margin-top: 28px;
 `;

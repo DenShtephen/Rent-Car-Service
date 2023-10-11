@@ -16,6 +16,7 @@ export const ImageContainer = styled.div`
 export const CarImage = styled.img`
   width: 274px;
   height: 228px;
+  object-fit: cover;
 `;
 
 export const FavoriteButton = styled.button`
@@ -41,7 +42,7 @@ export const CardInfoContainer = styled.div`
 
 export const CarDetails = styled.p`
   span {
-    color: var(--main-text-color);
+    color: var(--car-text-color);
   }
 `;
 
@@ -53,6 +54,7 @@ export const AdditionalInfo = styled.div`
   padding: 0 6px;
   font-size: 12px;
   line-height: 18px;
+  color: var(--secondary-text-color);
 
   &:last-child {
     border-right: 0;

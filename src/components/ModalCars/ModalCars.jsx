@@ -50,7 +50,7 @@ export const ModalCars = ({ car, closeModal }) => {
           {car.year}
         </p>
         <CarDetails>
-          <div className="mt-[8px] inline-block text-overlay/[0.5] border-r-[1px] border-overlay/[0.1] px-[6px] text-[12px] leading-[18px]">
+          <div>
             <span>{addressFormat(car.address).join('')}</span>
             <span>Id: {car.id}</span>
             <span>Year: {car.year}</span>
@@ -67,7 +67,7 @@ export const ModalCars = ({ car, closeModal }) => {
         <p className="mt-[18px] text-[14px] font-medium leading-[20px]">
           Accessories and functionalities:
         </p>
-        <div className="mt-[8px] inline-block text-overlay/[0.5] border-r-[1px] border-overlay/[0.1] px-[6px] text-[12px] leading-[18px]">
+        <CarDetails>
           {car.accessories
             .slice(1, 3)
             .concat(car.functionalities.slice(1, 3))
@@ -76,7 +76,7 @@ export const ModalCars = ({ car, closeModal }) => {
                 {el}
               </span>
             ))}
-        </div>
+        </CarDetails>
         <p className="mt-[18px] text-[14px] font-medium leading-[20px]">
           Rental Conditions:
         </p>

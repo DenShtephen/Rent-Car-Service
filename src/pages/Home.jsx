@@ -1,5 +1,20 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { resetCarsStore } from 'components/redux/services/operations';
+import { MainPage } from '../components/MainPage/MainPage';
+
 const Home = () => {
-  return <div>You're path to comfortable road tripping</div>;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetCarsStore());
+  }, [dispatch]);
+
+  return (
+    <>
+      <MainPage />
+    </>
+  );
 };
 
 export default Home;

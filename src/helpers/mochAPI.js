@@ -22,6 +22,11 @@ export const fetchCars = async (page = 1) => {
   }
 };
 
+export const fetchAllCars = async () => {
+  const { data } = await instance.get();
+  return data;
+};
+
 export const getCarById = async id => {
   const { data } = await instance.get(`/adverts/${id}`);
   return data;

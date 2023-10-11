@@ -6,6 +6,7 @@ import { getCars } from '../redux/services/operations';
 import { selectCars, selectFavorites } from '../redux/state';
 import {
   CarListContainer,
+  CarsWrapper,
   LoadMoreButton,
   WrapperCarInfo,
 } from './CarList.styled';
@@ -27,7 +28,7 @@ export const CarList = () => {
     setCurrentPage(prevPage => prevPage + 1);
   };
   return (
-    <>
+    <CarsWrapper>
       {(!cars || cars.length === 0) && (
         <WrapperCarInfo>
           {isFavoritePage
@@ -45,6 +46,6 @@ export const CarList = () => {
           Load More
         </LoadMoreButton>
       )}
-    </>
+    </CarsWrapper>
   );
 };

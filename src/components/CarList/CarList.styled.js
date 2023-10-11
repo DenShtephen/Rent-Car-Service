@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const CarsWrapper = styled.div`
+  margin-top: 50px;
+`;
+
 export const WrapperCarInfo = styled.p`
   margin-top: 20px;
   text-align: center;
@@ -7,6 +11,8 @@ export const WrapperCarInfo = styled.p`
 `;
 
 export const CarListContainer = styled.ul`
+  width: 1440px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
